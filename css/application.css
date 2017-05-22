@@ -62,7 +62,7 @@ i {
 }
 
 .dropdown-menu li > a:hover i[class^="icon-"], .dropdown-menu li > a:focus i[class^="icon-"], .dropdown-menu li > a:hover i[class*=" icon-"], .dropdown-menu li > a:focus i[class*=" icon-"] {
-  background-image: url("../lib/bootstrap/glyphicons-halflings-white.png");
+  background-image: url("../vendor/bootstrap/glyphicons-halflings-white.png");
 }
 
 .navbar .nav .icon-sprite, .navbar .icon-sprite {
