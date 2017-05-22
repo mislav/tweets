@@ -242,7 +242,7 @@ i {
 }
 
 .sidebar {
-  position: fixed;
+  position: absolute;
   width: 350px;
   margin-top: 20px;
   margin-left: 600px;
