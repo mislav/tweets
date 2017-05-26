@@ -1,0 +1,19 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    colorize (0.8.1)
+    grailbird_updater (0.5.1)
+      colorize
+      oauth
+      trollop
+    oauth (0.5.2)
+    trollop (2.1.2)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  grailbird_updater
+
+BUNDLED WITH
+   1.14.6
