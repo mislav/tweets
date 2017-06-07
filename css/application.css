@@ -458,3 +458,6 @@ i {
   display: none !important;
 }
 
+.twt-inline .e-content .p-name {
+  white-space: pre-wrap !important;
+}
