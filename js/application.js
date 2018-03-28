@@ -118,6 +118,16 @@ var Grailbird = function (type, date, data) {
       $(this).tooltip('show');
     });
 
+    $(function() {
+      var params = new URLSearchParams(location.search)
+      var query = params.get('q')
+      if (query) {
+        var form = $('.navbar-search')
+        form.find('.search-query').val(query)
+        form.submit()
+      }
+    })
+
     $('.navbar-search').submit(function(e) {
       e.preventDefault();
 
@@ -138,6 +148,9 @@ var Grailbird = function (type, date, data) {
         $(this).empty();
         $(this).fadeIn(100);
         User.search(searchInput);
+        var url = new URL(location.href)
+        url.searchParams.set('q', searchInput)
+        history.replaceState({}, null, url)
       });
     })
     .tooltip()
