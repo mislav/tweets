@@ -1,0 +1,30 @@
+#!/bin/bash
+set -e
+
+cd "$(dirname "$0")"
+
+case "$1" in
+  rebuild )
+    rm -f data/js_likes/tweets/*_*.js
+    cat > data/js_likes/payload_details.js <<EOF
+var payload_details = {
+  "tweets": 0,
+  "created_at": "2017-05-04 17:26:37 +0000",
+  "lang": "en",
+  "updated_at": "Fri May 26 18:22:58 +0000 2017"
+}
+EOF
+    cat > data/js_likes/tweet_index.js <<EOF
+var tweet_index = []
+EOF
+    bundle exec ruby lib/likes_updater.rb
+    ;;
+  '' )
+    bundle exec grailbird_updater .
+    bundle exec ruby lib/likes_updater.rb
+    ;;
+  * )
+    echo "unkown command: $1" 2>&1
+    exit 1
+    ;;
+esac
