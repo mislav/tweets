@@ -97,8 +97,13 @@
   <script src="vendor/hogan/hogan-2.0.0.min.js"></script>
   <script src="js/application.js" charset="utf-8"></script>
   <script src="js/en.js" charset="utf-8"></script>
-  <script src="data/js/payload_details.js" charset="utf-8"></script>
-  <script src="data/js/tweet_index.js" charset="utf-8"></script>
-  <script src="data/js/user_details.js" charset="utf-8"></script>
+  <script>
+    var dataPrefix = 'data/js'
+    var params = new URLSearchParams(location.search)
+    if (params.get('stream') == 'likes') dataPrefix = 'data/js_likes'
+    ;['payload_details.js', 'tweet_index.js', 'user_details.js'].forEach(function(script) {
+      document.write('<script src="'+dataPrefix+'/'+script+'" charset="utf-8"><\/script>')
+    })
+  </script>
 </body>
 </html>
