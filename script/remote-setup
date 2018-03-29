@@ -1,0 +1,15 @@
+#!/bin/bash
+set -e
+
+destination="${1?}"
+
+ssh "$destination" '
+  mkdir -p tweets
+  cd tweets
+  git init
+  git config receive.denyCurrentBranch ignore
+  cat - > .git/hooks/post-receive
+  chmod +x .git/hooks/post-receive
+' < script/post-receive.sh
+
+git remote add production "$destination":tweets

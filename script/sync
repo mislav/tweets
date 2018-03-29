@@ -1,0 +1,6 @@
+#!/bin/bash
+set -e
+
+destination="${1?}"
+
+rsync -vrz data mislav_keys.yaml tweets.csv "$destination":tweets/
